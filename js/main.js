@@ -1,3 +1,5 @@
+const OPENWEATHER_API_KEY = config.OPENWEATHER_API_KEY
+
 document.getElementById('search').addEventListener('click', getMap)
 
 function getMap() {
