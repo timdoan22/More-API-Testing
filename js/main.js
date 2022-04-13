@@ -17,7 +17,10 @@ function getGeoData() {
         fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${OPENWEATHER_API_KEY}`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            document.getElementById('temperature').classList.toggle('hidden')
+            document.getElementById('weatherDesc').classList.toggle('hidden')
+            document.getElementById('temperature').innerText += ` ${(data.main.temp - 273.15).toFixed(2)} Cesius`
+            document.getElementById('weatherDesc').innerText += ` ${data.weather[0].main.toLowerCase()} - ${data.weather[0].description}`
         })
         .catch(err => {
             console.log(`error ${err}`)
